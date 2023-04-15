@@ -11,7 +11,17 @@ Cele:
     - pory roku
       - rośnięcie roślin odpowiednie do pory roku
     - dzień i noc
-
+  - zwierzęta
+    - w lesie
+      - wiewiórki
+      - wilki
+      - sarny
+      - dziki
+    - na farmie
+      - świnie
+      - kurczaki
+      - krowy
+      - owce
   - zarządzanie bohaterem
     - umiejętności 
       - kopalnictwo
