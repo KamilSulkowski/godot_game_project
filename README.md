@@ -3,6 +3,15 @@
 NAZWA: ???
 
 Cele:
+  - Świat
+    - pogoda
+      - deszczowo
+      - słonecznie
+      - śnieżnie
+    - pory roku
+      - rośnięcie roślin odpowiednie do pory roku
+    - dzień i noc
+
   - zarządzanie bohaterem
     - umiejętności 
       - kopalnictwo
