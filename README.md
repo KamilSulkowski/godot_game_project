@@ -68,3 +68,12 @@ Cele:
   
   Wykonane cele:
     - nauka silnika godot
+    - dodane 
+      - kukurydza
+      - kapusta
+      - marchewka
+      - truskawki
+      - cebula
+    - nowa mechanika :
+      - sadzenie 
+      - zbieranie 
