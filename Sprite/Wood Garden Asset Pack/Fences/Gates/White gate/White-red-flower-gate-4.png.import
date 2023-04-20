@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://dgpxpotmbel53"
+path="res://.godot/imported/White-red-flower-gate-4.png-9c35ab4950c73d8807a729004c16095f.ctex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Sprite/Wood Garden Asset Pack/Fences/Gates/White gate/White-red-flower-gate-4.png"
+dest_files=["res://.godot/imported/White-red-flower-gate-4.png-9c35ab4950c73d8807a729004c16095f.ctex"]
+
+[params]
+
+compress/mode=0
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=false
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=1

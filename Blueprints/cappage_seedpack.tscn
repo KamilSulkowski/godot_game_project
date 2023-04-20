@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvinske6focuj"]
+
+[ext_resource type="Script" path="res://Scripts/cappage_seedpack.gd" id="1_iooq3"]
+[ext_resource type="Texture2D" uid="uid://3p12eis42yxk" path="res://Sprite/farmingTilesheetComplete.png" id="2_urnpu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sujk1"]
+atlas = ExtResource("2_urnpu")
+region = Rect2(64, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h5o45"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sujk1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j2jlu"]
+radius = 5.0
+
+[node name="cappage_seedpack" type="StaticBody2D"]
+script = ExtResource("1_iooq3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_h5o45")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_j2jlu")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

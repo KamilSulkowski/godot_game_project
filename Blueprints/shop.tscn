@@ -1,0 +1,110 @@
+[gd_scene load_steps=18 format=3 uid="uid://dgqw2eegh0gyu"]
+
+[ext_resource type="Script" path="res://Scripts/shop.gd" id="1_iaf8u"]
+[ext_resource type="Texture2D" uid="uid://3p12eis42yxk" path="res://Sprite/farmingTilesheetComplete.png" id="2_y3lnb"]
+[ext_resource type="PackedScene" uid="uid://dvinske6focuj" path="res://Blueprints/cappage_seedpack.tscn" id="3_ovwi5"]
+[ext_resource type="PackedScene" uid="uid://bsixa0sik4rwy" path="res://Blueprints/carrot_seedpack.tscn" id="4_prpvk"]
+[ext_resource type="PackedScene" uid="uid://dl5nctnb4dhrk" path="res://Blueprints/strawberry_seedpack.tscn" id="5_4mjmc"]
+[ext_resource type="PackedScene" uid="uid://buaopp04m5nh4" path="res://Blueprints/onion_seedpack.tscn" id="6_inbvx"]
+[ext_resource type="PackedScene" uid="uid://b14pk2l5sf8a" path="res://Blueprints/corn_seedpack.tscn" id="7_83jxg"]
+[ext_resource type="PackedScene" uid="uid://dytv4g5eo1u4x" path="res://Blueprints/shopmenu.tscn" id="8_le2s0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6nddv"]
+size = Vector2(30, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqybd"]
+atlas = ExtResource("2_y3lnb")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ittvw"]
+atlas = ExtResource("2_y3lnb")
+region = Rect2(176, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qg8yq"]
+atlas = ExtResource("2_y3lnb")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2bbi"]
+atlas = ExtResource("2_y3lnb")
+region = Rect2(160, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k1ajy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqybd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ittvw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qg8yq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v2bbi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.5
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lchuk"]
+size = Vector2(22, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwjrb"]
+atlas = ExtResource("2_y3lnb")
+region = Rect2(0, 175, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_agg4g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwjrb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="shop" type="StaticBody2D"]
+script = ExtResource("1_iaf8u")
+
+[node name="shop" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_6nddv")
+
+[node name="anitka" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_k1ajy")
+frame_progress = 0.915633
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="shoparea" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_lchuk")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -4)
+sprite_frames = SubResource("SpriteFrames_agg4g")
+
+[node name="cappage_seedpack" parent="." instance=ExtResource("3_ovwi5")]
+visible = false
+
+[node name="carrot_seedpack" parent="." instance=ExtResource("4_prpvk")]
+visible = false
+
+[node name="strawberry_seedpack" parent="." instance=ExtResource("5_4mjmc")]
+visible = false
+
+[node name="corn_seedpack" parent="." instance=ExtResource("7_83jxg")]
+visible = false
+
+[node name="shopmenu" parent="." instance=ExtResource("8_le2s0")]
+position = Vector2(-21, -39)
+
+[node name="onion_seedpack" parent="." instance=ExtResource("6_inbvx")]
+visible = false
+position = Vector2(23, 4)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

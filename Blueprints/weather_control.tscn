@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsjuhjy68nfrc"]
+
+[ext_resource type="Script" path="res://Scripts/weather_control.gd" id="1_f6bgi"]
+[ext_resource type="Texture2D" uid="uid://doji1qhlhvxck" path="res://Sprite/rain.png" id="2_jx448"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p4vt4"]
+lifetime_randomness = 0.2
+emission_shape = 3
+emission_box_extents = Vector3(200, 150, 90)
+particle_flag_disable_z = true
+spread = 0.0
+gravity = Vector3(0, 98, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+
+[node name="weather_control" type="StaticBody2D"]
+script = ExtResource("1_f6bgi")
+
+[node name="raincolor" type="CanvasModulate" parent="."]
+
+[node name="rain_middle" type="GPUParticles2D" parent="."]
+modulate = Color(0.137255, 0.137255, 0.137255, 0.47451)
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_p4vt4")
+texture = ExtResource("2_jx448")
+fixed_fps = 60
+
+[node name="rain_middle_Timer" type="Timer" parent="."]
+wait_time = 15.0
+autostart = true
+
+[node name="drizzle" type="GPUParticles2D" parent="."]
+visible = false
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_p4vt4")
+texture = ExtResource("2_jx448")
+speed_scale = 0.8
+randomness = 1.0
+fixed_fps = 60
+
+[node name="drizzle_Timer" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
+
+[connection signal="timeout" from="rain_middle_Timer" to="." method="_on_rain_middle_timer_timeout"]
+[connection signal="timeout" from="drizzle_Timer" to="." method="_on_drizzle_timer_timeout"]

@@ -1,0 +1,185 @@
+[gd_scene load_steps=15 format=3 uid="uid://dytv4g5eo1u4x"]
+
+[ext_resource type="Script" path="res://Scripts/shopmenu.gd" id="1_tnowe"]
+[ext_resource type="Texture2D" uid="uid://3p12eis42yxk" path="res://Sprite/farmingTilesheetComplete.png" id="2_aiqik"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upmwk"]
+atlas = ExtResource("2_aiqik")
+region = Rect2(64, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3xhp"]
+atlas = ExtResource("2_aiqik")
+region = Rect2(192, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_id4fu"]
+atlas = ExtResource("2_aiqik")
+region = Rect2(96, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmoa4"]
+atlas = ExtResource("2_aiqik")
+region = Rect2(144, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ic357"]
+atlas = ExtResource("2_aiqik")
+region = Rect2(16, 64, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m08tf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upmwk")
+}],
+"loop": true,
+"name": &"cappageseed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3xhp")
+}],
+"loop": true,
+"name": &"carrotseed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_id4fu")
+}],
+"loop": true,
+"name": &"cornseed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmoa4")
+}],
+"loop": true,
+"name": &"onionseed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ic357")
+}],
+"loop": true,
+"name": &"strawberryseed",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svpfh"]
+atlas = ExtResource("2_aiqik")
+region = Rect2(64, 80, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0atb6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svpfh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oxxno"]
+atlas = ExtResource("2_aiqik")
+region = Rect2(176, 80, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q3xfu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oxxno")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fx4h1"]
+atlas = ExtResource("2_aiqik")
+region = Rect2(176, 80, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7pm5c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fx4h1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="shopmenu" type="StaticBody2D"]
+visible = false
+script = ExtResource("1_tnowe")
+
+[node name="buy" type="RichTextLabel" parent="."]
+offset_left = 30.0
+offset_top = 15.0
+offset_right = 68.0
+offset_bottom = 35.0
+scale = Vector2(0.4, 0.4)
+text = "BUY"
+scroll_active = false
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 48.0
+offset_bottom = 25.0
+color = Color(0, 0, 0, 0.164706)
+
+[node name="leftbutton" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 1.0
+offset_top = 16.0
+offset_right = 9.0
+offset_bottom = 24.0
+
+[node name="icon" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, 7)
+sprite_frames = SubResource("SpriteFrames_m08tf")
+animation = &"cappageseed"
+
+[node name="rightbutton" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 12.0
+offset_top = 16.0
+offset_right = 20.0
+offset_bottom = 24.0
+
+[node name="buybutton" type="Button" parent="."]
+modulate = Color(1, 0.435294, 1, 0)
+offset_left = 27.0
+offset_top = 16.0
+offset_right = 46.0
+offset_bottom = 24.0
+
+[node name="coin" type="AnimatedSprite2D" parent="."]
+position = Vector2(40, 9)
+scale = Vector2(0.5625, 0.5625)
+sprite_frames = SubResource("SpriteFrames_0atb6")
+frame_progress = 0.202258
+
+[node name="price" type="RichTextLabel" parent="."]
+offset_left = 17.0
+offset_top = 4.0
+offset_right = 65.0
+offset_bottom = 27.0
+scale = Vector2(0.4, 0.4)
+text = "100"
+fit_content = true
+
+[node name="rightarrow" type="AnimatedSprite2D" parent="."]
+position = Vector2(14, 19)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_q3xfu")
+
+[node name="leftarrow" type="AnimatedSprite2D" parent="."]
+position = Vector2(7, 20)
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_7pm5c")
+
+[connection signal="pressed" from="leftbutton" to="." method="_on_leftbutton_pressed"]
+[connection signal="pressed" from="rightbutton" to="." method="_on_rightbutton_pressed"]
+[connection signal="pressed" from="buybutton" to="." method="_on_buybutton_pressed"]

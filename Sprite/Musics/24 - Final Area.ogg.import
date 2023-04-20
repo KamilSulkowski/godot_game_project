@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://8ebwe41fui22"
+path="res://.godot/imported/24 - Final Area.ogg-9058437a4745ebde6dbfb907ed03b68d.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sprite/Musics/24 - Final Area.ogg"
+dest_files=["res://.godot/imported/24 - Final Area.ogg-9058437a4745ebde6dbfb907ed03b68d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

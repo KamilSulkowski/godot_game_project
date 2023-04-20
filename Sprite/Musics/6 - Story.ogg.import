@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b08cnohm1tycv"
+path="res://.godot/imported/6 - Story.ogg-444bb61a52592cccf57340c95ab5ea8a.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sprite/Musics/6 - Story.ogg"
+dest_files=["res://.godot/imported/6 - Story.ogg-444bb61a52592cccf57340c95ab5ea8a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

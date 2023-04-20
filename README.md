@@ -77,3 +77,9 @@ Cele:
     - nowa mechanika :
       - sadzenie 
       - zbieranie 
+      - pogoda(burza/mżawka)
+        - podczas burzy znikają sprzedawcy
+      - sprzedawanie
+      - kupowanie
+      - kurczaki
+        - losowe poruszanie się kurczaków 

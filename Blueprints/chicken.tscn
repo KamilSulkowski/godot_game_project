@@ -1,0 +1,103 @@
+[gd_scene load_steps=11 format=3 uid="uid://d2u16ujtx3qoc"]
+
+[ext_resource type="Script" path="res://Scripts/chicken.gd" id="1_anxqd"]
+[ext_resource type="Texture2D" uid="uid://3p12eis42yxk" path="res://Sprite/farmingTilesheetComplete.png" id="2_k4epj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wwb2m"]
+atlas = ExtResource("2_k4epj")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b30uy"]
+atlas = ExtResource("2_k4epj")
+region = Rect2(64, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0agg7"]
+atlas = ExtResource("2_k4epj")
+region = Rect2(80, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6vja"]
+atlas = ExtResource("2_k4epj")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcpfl"]
+atlas = ExtResource("2_k4epj")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svxri"]
+atlas = ExtResource("2_k4epj")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_11eqw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwb2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b30uy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0agg7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b30uy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0agg7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b30uy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0agg7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b30uy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0agg7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wwb2m")
+}],
+"loop": true,
+"name": &"eating",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6vja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcpfl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_svxri")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 7.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_35a8c"]
+radius = 5.0
+
+[node name="chicken" type="CharacterBody2D"]
+script = ExtResource("1_anxqd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_11eqw")
+animation = &"walking"
+frame_progress = 0.315713
+
+[node name="changestatetimer" type="Timer" parent="."]
+autostart = true
+
+[node name="walkingtimer" type="Timer" parent="."]
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_35a8c")
+
+[connection signal="timeout" from="changestatetimer" to="." method="_on_changestatetimer_timeout"]
+[connection signal="timeout" from="walkingtimer" to="." method="_on_walkingtimer_timeout"]

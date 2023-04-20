@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bg4d8r7b3nx04"
+path="res://.godot/imported/9 - Quiet.ogg-a865cad88dcbcb7fa6f1a3486ae52ca4.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sprite/Musics/9 - Quiet.ogg"
+dest_files=["res://.godot/imported/9 - Quiet.ogg-a865cad88dcbcb7fa6f1a3486ae52ca4.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
