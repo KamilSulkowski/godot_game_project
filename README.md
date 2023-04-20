@@ -83,3 +83,4 @@ Cele:
       - kupowanie
       - kurczaki
         - losowe poruszanie się kurczaków 
+        
