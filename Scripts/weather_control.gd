@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-var current_weather = "rain" #none rain_middle, drizzle
+var current_weather = "none" #none rain_middle, drizzle
 
 func _ready() -> void:
 	if current_weather == "none":

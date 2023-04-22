@@ -4,8 +4,8 @@ var state: String = "day" #day night
 
 var change_state: bool = false
 
-var lenght_of_day: int = 15 #sec
-var lenght_of_night: int = 8 #sec
+var lenght_of_day: int = 120 #sec
+var lenght_of_night: int = 40 #sec
 var day: int = 1
 
 func _ready() -> void:

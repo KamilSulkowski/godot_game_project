@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://vi6li2isvvk4"]
+[gd_scene load_steps=16 format=3 uid="uid://vi6li2isvvk4"]
 
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_8y3ov"]
 [ext_resource type="Texture2D" uid="uid://byen7u53wns4d" path="res://Sprite/MedievalFantasyAdventurerSprites/Player/MainCharacter.png" id="1_gl4vb"]
 
 [sub_resource type="Animation" id="Animation_foy24"]
@@ -202,11 +203,17 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l7gaw"]
-size = Vector2(14, 9.5)
+size = Vector2(8, 5.25)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cb73y"]
+radius = 19.0
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
 y_sort_enabled = true
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("1_8y3ov")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_repeat = 2
@@ -224,5 +231,19 @@ libraries = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4.25)
+visible = false
+position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_l7gaw")
+
+[node name="player_hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitbox"]
+position = Vector2(0, -9)
+shape = SubResource("CircleShape2D_cb73y")
+
+[node name="attack_cooldown" type="Timer" parent="."]
+autostart = true
+
+[connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
+[connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
+[connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]

@@ -1,40 +1,35 @@
 extends CharacterBody2D
 
-@export var speed: float = 1
-@export var limit: float = 0.5
-@export var endPoint: Marker2D
-const MOVE_SPEED: float = 20.0
+@export var speed: float = 75
+var player_chase = false
+var player = null
 
-@onready var animations = $AnimatedSprite2D
+func _physics_process(delta):
+	if player_chase == true:
+		position += (player.position - position) / speed
 
-var animationString = "walkDown"
-var startPosition
-var endPosition
+		if(player.position.x - position.x) < 0:
+			$AnimatedSprite2D.play("walkLeft")
+		elif(player.position.x - position.x) > 0:
+			$AnimatedSprite2D.play("walkRight")
+		elif(player.position.y - position.y) < 0:
+			$AnimatedSprite2D.play("walkDown")
+		elif(player.position.y - position.y) > 0:
+			$AnimatedSprite2D.play("walkUp")
+	else:
+		if(position.x) < 0:
+			$AnimatedSprite2D.play("idleLeft")
+		elif(position.x) > 0:
+			$AnimatedSprite2D.play("idleRight")
+		elif(position.y) < 0:
+			$AnimatedSprite2D.play("idlekDown")
+		elif(position.y) > 0:
+			$AnimatedSprite2D.play("idleUp")
 
-func _ready() -> void:
-	startPosition = position
-	endPosition = endPoint.global_position
-	
-func changeDirection():
-	var tempEnd = endPosition
-	endPosition = startPosition
-	startPosition = tempEnd
-	
-func updateVelocity():
-	var moveDirection = (endPosition - position)
-	if moveDirection.length() < limit:
-		changeDirection()
-	velocity = moveDirection.normalized()*(speed*MOVE_SPEED)
-	move_and_slide()
-	
-func updateAnimation():
-	if velocity.y > 0: animationString = "walkDown"
-	elif velocity.y < 0: animationString = "walkUp"
-	elif velocity.x > 0: animationString = "walkRight"
-	elif velocity.x < 0: animationString = "walkLeft"
-	
-	animations.play(animationString)
-	
-func _physics_process(delta: float) -> void:
-	updateVelocity()
-	updateAnimation()
+func _on_detection_area_body_entered(body):
+	player = body
+	player_chase = true
+
+func _on_detection_area_body_exited(body):
+	player = null
+	player_chase = false

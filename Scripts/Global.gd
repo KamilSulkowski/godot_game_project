@@ -12,3 +12,5 @@ var coins = 0
 
 var weather
 var day
+
+var player_current_attack = false

@@ -83,6 +83,8 @@ animations = [{
 radius = 5.0
 
 [node name="chicken" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_anxqd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

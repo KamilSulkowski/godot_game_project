@@ -67,6 +67,7 @@ animations = [{
 }]
 
 [node name="shop" type="StaticBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_iaf8u")
 
 [node name="shop" type="CollisionShape2D" parent="."]
@@ -74,6 +75,8 @@ position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_6nddv")
 
 [node name="anitka" type="AnimatedSprite2D" parent="."]
+z_index = -1
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_k1ajy")
 frame_progress = 0.915633
 
@@ -89,22 +92,26 @@ sprite_frames = SubResource("SpriteFrames_agg4g")
 
 [node name="cappage_seedpack" parent="." instance=ExtResource("3_ovwi5")]
 visible = false
+position = Vector2(26, -11)
 
 [node name="carrot_seedpack" parent="." instance=ExtResource("4_prpvk")]
 visible = false
+position = Vector2(26, 0)
 
 [node name="strawberry_seedpack" parent="." instance=ExtResource("5_4mjmc")]
 visible = false
+position = Vector2(28, 11)
 
 [node name="corn_seedpack" parent="." instance=ExtResource("7_83jxg")]
 visible = false
+position = Vector2(-29, -12)
 
 [node name="shopmenu" parent="." instance=ExtResource("8_le2s0")]
 position = Vector2(-21, -39)
 
 [node name="onion_seedpack" parent="." instance=ExtResource("6_inbvx")]
 visible = false
-position = Vector2(23, 4)
+position = Vector2(-29, 0)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
