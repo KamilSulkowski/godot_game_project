@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://ppvlln3rro7e"]
+
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_nd27v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gccve"]
+bg_color = Color(0.133333, 0.0588235, 0, 1)
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_nd27v")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 240.0
+offset_bottom = 136.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_gccve")
+
+[node name="PlayButton" type="Button" parent="."]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 74.0
+offset_bottom = 39.0
+scale = Vector2(0.4, 0.4)
+text = "Graj
+"
+
+[node name="QuitButton" type="Button" parent="."]
+offset_left = 208.0
+offset_top = 112.0
+offset_right = 274.0
+offset_bottom = 143.0
+scale = Vector2(0.4, 0.4)
+text = "Wyjście"
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_play_button_pressed"]

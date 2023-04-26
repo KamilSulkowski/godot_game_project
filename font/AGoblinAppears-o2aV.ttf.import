@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cqkit56b0avec"
-path="res://.godot/imported/NormalFont.ttf-03f5fcf422ab9ee8ee974a49a4641dc6.fontdata"
+uid="uid://cyk6f5fw5oaao"
+path="res://.godot/imported/AGoblinAppears-o2aV.ttf-8671d563c1a6c76755bcb78853ffe7e6.fontdata"
 
 [deps]
 
-source_file="res://Sprite/HUD/Font/NormalFont.ttf"
-dest_files=["res://.godot/imported/NormalFont.ttf-03f5fcf422ab9ee8ee974a49a4641dc6.fontdata"]
+source_file="res://font/AGoblinAppears-o2aV.ttf"
+dest_files=["res://.godot/imported/AGoblinAppears-o2aV.ttf-8671d563c1a6c76755bcb78853ffe7e6.fontdata"]
 
 [params]
 

@@ -42,7 +42,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = 0
 	
 	move_and_slide()
-	
+
 func _on_changestatetimer_timeout() -> void:
 	var waittime: int = 2
 	if walking == true:
@@ -61,11 +61,11 @@ func _on_walkingtimer_timeout() -> void:
 	var y = randi_range(1,2)
 	var waittime = randf_range(1,4)
 	
-	if x > 1.5:
+	if x > 1:
 		xdir = 1 #right
 	else:
 		xdir = -1 #left
-	if y > 1.5:
+	if y > 1:
 		ydir = 1 #down
 	else:
 		ydir = -1 #up

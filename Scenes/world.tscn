@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://0nvifcm5liel"]
+[gd_scene load_steps=24 format=3 uid="uid://0nvifcm5liel"]
 
 [ext_resource type="PackedScene" uid="uid://vi6li2isvvk4" path="res://Blueprints/player.tscn" id="1_db4ib"]
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_vweke"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://rd2rks8mwuja" path="res://Blueprints/growingzone.tscn" id="15_q7jbj"]
 [ext_resource type="PackedScene" uid="uid://jk5s5ou5hxds" path="res://enemies/small_green_slime.tscn" id="16_6lwpy"]
 [ext_resource type="PackedScene" uid="uid://d3ymgygk1ca7n" path="res://Blueprints/sellzone.tscn" id="16_bijha"]
+[ext_resource type="PackedScene" uid="uid://7uwqacgs5bje" path="res://Blueprints/spawnarea.tscn" id="16_vw62b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1j144"]
 texture = ExtResource("3_fdoiu")
@@ -3151,10 +3152,10 @@ z_index = 1
 position = Vector2(1023, 652)
 
 [node name="Player" parent="TileMap" instance=ExtResource("1_db4ib")]
-position = Vector2(833, 769)
+position = Vector2(669, 250)
 
 [node name="follow cam" type="Camera2D" parent="TileMap/Player" node_paths=PackedStringArray("tilemap")]
-position = Vector2(0, -8)
+position = Vector2(0, -1)
 limit_left = 0
 limit_top = 0
 limit_smoothed = true
@@ -3268,4 +3269,7 @@ position = Vector2(969, 771)
 position = Vector2(831, 856)
 
 [node name="CharacterBody2D" parent="TileMap" instance=ExtResource("16_6lwpy")]
-position = Vector2(720, 823)
+position = Vector2(730, 816)
+
+[node name="spawnarea" parent="TileMap" instance=ExtResource("16_vw62b")]
+position = Vector2(-16, -24)
