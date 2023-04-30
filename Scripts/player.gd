@@ -2,33 +2,38 @@ extends CharacterBody2D
 
 var enemy_inattack_range = false
 var enemy_attack_cooldown = true
-var health = 100
+@export var health = 100
 var player_alive = true
 var attack_ip = false
 var cur_dir = "none"
-@export var speed: int = 1
 var movement = 0
 
 var direction = "IdleDown"
-
-const MOVE_SPEED: float = 35.0
+@export var starting_direction: Vector2 = Vector2(0, 1)
+@export var MOVE_SPEED: float = 35.0
+@onready var animation_tree = $AnimationTree
 
 func _ready():
 	$AnimatedSprite2D.play("IdleDown")
-	
+
 func _physics_process(delta: float) -> void:
+	#var input_direction = Vector2(
+	#	Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"),
+	#	Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+	#).normalized()
+	#velocity = input_direction * MOVE_SPEED
+	#move_and_slide()
 	if health > 0:
 		player_movement(delta)
 		enemy_attack()
 		attack()
 		Global.player_alive = player_alive
-		player_alive = false #back to menu
 	elif health <= 0:
 		health = 0
-		print("player has been killed")
+		get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
 	
 func player_movement(delta):
-	var mov_speed = speed * MOVE_SPEED
+	var mov_speed = MOVE_SPEED
 	if Input.is_action_pressed("ui_right"):
 		cur_dir = "Right"
 		play_anim(1)
